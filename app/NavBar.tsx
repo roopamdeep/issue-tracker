@@ -13,6 +13,7 @@ import {
   Flex,
   Text,
 } from "@radix-ui/themes";
+import {Skeleton} from "@/app/components";
 
 const NavBar = () => {
   return (
@@ -33,7 +34,7 @@ const NavBar = () => {
 };
 const AuthStatus = () => {
   const { status, data: session } = useSession();
-  if (status === "loading") return null;
+  if (status === "loading") return <Skeleton width="3rem"/>;
 
   if (status === "unauthenticated")
     return <Link href="/api/auth/signin">Login</Link>;
